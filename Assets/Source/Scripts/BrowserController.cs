@@ -13,7 +13,7 @@ public class BrowserController : MonoBehaviour
     public GameObject adP1Prefab;
     public GameObject adP2Prefab;
     private bool reachedZero=false;
-    public float value = 10f;
+    public float value = 10f; 
     public Transform adZone;
     Vector2 minBounds, maxBounds;
 

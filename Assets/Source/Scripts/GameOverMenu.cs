@@ -11,7 +11,7 @@ public class GameOverMenu : MonoBehaviour
     }
 
     public void GotToMenu(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void ActivateSendEmailBttn(){

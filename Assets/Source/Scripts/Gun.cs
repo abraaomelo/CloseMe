@@ -18,14 +18,19 @@ public class Gun : MonoBehaviour
   
     public ButtonSendEmailController emailController;
 
+    public bool canShoot=true;
+    public AntivirusApp antivirus;
+
     void Start()
     {
         StartCoroutine(ShootRoutine());   
     }
 
     IEnumerator ShootRoutine(){
-        while (true){
+        while (canShoot){
+            if (!antivirus.ReachedZero()){
             Shoot();
+            }
             yield return new WaitForSeconds(fireRate);
         }
     }
@@ -43,5 +48,10 @@ public class Gun : MonoBehaviour
                 rb.velocity = shootDirection * bulletSpeed;
             }
         }
+    }
+
+    public void SetAntivirus(AntivirusApp app)
+{
+    antivirus = app;
     }
 }
