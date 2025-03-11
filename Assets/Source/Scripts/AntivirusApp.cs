@@ -15,7 +15,7 @@ public class AntivirusApp : MonoBehaviour
     void Start()
     {
         InitialPercentCalc(totalHPStart);
-        threatLevelTxt.text = "Threat Level %62";
+        threatLevelTxt.text = "%62";
     }
 
     void Update()
@@ -29,16 +29,18 @@ public class AntivirusApp : MonoBehaviour
 
     public void AddHP(float newAdHP){
         threatLvlPercent += newAdHP;
-        threatLevelTxt.text = "Threat Level %"+threatLvlPercent;
+        threatLevelTxt.text = (threatLvlPercent.ToString()+"%");
     }
 
     public void AdHit(){
         threatLvlPercent -= 1;
-        threatLevelTxt.text = "Threat Level %"+threatLvlPercent;
+        threatLevelTxt.text = (threatLvlPercent.ToString())+"%";
         if (ReachedZero()){
             Debug.Log("CHEGOU NO ZERO NO ADHIT");
             browser.ReachedZero();
         }
+
+        TextColorChange();
     }
 
     public float GetCurrentPercent(){
@@ -55,6 +57,16 @@ public class AntivirusApp : MonoBehaviour
 
     public void Ad1stDestroyed(){
         envController.show1stNotification();
+    }
+
+    void TextColorChange(){
+        if (threatLvlPercent > 0 && threatLvlPercent <6){
+            threatLevelTxt.color = Color.green;
+        }else if(threatLvlPercent > 5 && threatLvlPercent < 76){
+            threatLevelTxt.color = Color.black;
+        }else if (threatLvlPercent >= 76){
+            threatLevelTxt.color = Color.red;
+        }
     }
 
     

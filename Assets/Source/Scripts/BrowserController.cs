@@ -27,13 +27,17 @@ public class BrowserController : MonoBehaviour
     void Update()
     {
         CheckIfReachedZero();
+
+        if(Input.GetKeyDown(KeyCode.N)){
+            CreateRandomAd();
+        }
     }
 
     private void CheckIfReachedZero(){
         if (antivirus.GetCurrentPercent()<1){
             reachedZero=true;
            
-            reachedZero=false;
+            //reachedZero=false;
         }
     }
 
@@ -43,13 +47,19 @@ public class BrowserController : MonoBehaviour
         Debug.Log("VENDO SE ENTRA");
         yield return new WaitForSeconds(1f); // Wait for 5 seconds
 
+            CreateRandomAd();
+            reachedZero=false;
+    }
+
+    public void ReachedZero(){
+        StartCoroutine(CheckAfterDelay());
+    }
+
+    void CreateRandomAd(){
         Vector2 randomPosition = new Vector2(
             Random.Range(minBounds.x, maxBounds.x),
             Random.Range(minBounds.y, maxBounds.y)
         );
-
-            // GameObject newAdG = Instantiate(adM1Prefab, randomPosition, Quaternion.identity);
-            // newAdG.GetComponent<AdMController>().SetAntivirus(antivirus);
             
             int randomAd = Random.Range(1, 6);  // Random number between 1 and 5
         
@@ -81,11 +91,6 @@ public class BrowserController : MonoBehaviour
                 Debug.LogError("Invalid ad selection");
                 break;
         }
-            reachedZero=false;
-    }
-
-    public void ReachedZero(){
-        StartCoroutine(CheckAfterDelay());
     }
 
 }
