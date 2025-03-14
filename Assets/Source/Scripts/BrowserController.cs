@@ -45,7 +45,7 @@ public class BrowserController : MonoBehaviour
     IEnumerator CheckAfterDelay()
     {
         Debug.Log("VENDO SE ENTRA");
-        yield return new WaitForSeconds(1f); // Wait for 5 seconds
+        yield return new WaitForSeconds(5f); // Wait for 5 seconds
 
             CreateRandomAd();
             reachedZero=false;
