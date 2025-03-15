@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   antivirus: {fileID: 929458974}
+  os: {fileID: 578039708}
 --- !u!4 &101847120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1006152367383638907, guid: 9f1a3d1743ecb4a2f80435534db8e00d, type: 3}
@@ -888,6 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   browser: {fileID: 421976222}
   antivirus: {fileID: 929458974}
+  os: {fileID: 578039708}
 --- !u!1 &195640823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,8 +3089,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578039707}
+  - component: {fileID: 578039708}
   m_Layer: 0
-  m_Name: OS
+  m_Name: LimOS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3112,6 +3115,23 @@ Transform:
   - {fileID: 776781127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578039708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578039706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c41ddb0427934256a37dc6d29860a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyWindowOpened: 0
+  browserIcon: {fileID: 1874687142}
+  antivirusIcon: {fileID: 231722246}
+  filesIcon: {fileID: 1070162633}
+  binIcon: {fileID: 0}
 --- !u!1 &645330747
 GameObject:
   m_ObjectHideFlags: 0

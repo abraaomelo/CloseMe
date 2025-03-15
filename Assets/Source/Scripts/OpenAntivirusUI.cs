@@ -10,6 +10,6 @@ public class OpenAntivirusUI : MonoBehaviour
     
     public void OpenAntivirus(){
         antivirus.SetActive(!antivirus.activeSelf);
-       // os.WindowOpened();
+        os.WindowOpened();
     }
 }
