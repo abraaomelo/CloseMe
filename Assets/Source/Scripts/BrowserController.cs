@@ -12,6 +12,7 @@ public class BrowserController : MonoBehaviour
     public GameObject adM2Prefab;
     public GameObject adP1Prefab;
     public GameObject adP2Prefab;
+    public GameObject desktopIcon1, desktopIcon2, desktopIcon3;
     private bool reachedZero=false;
     public float value = 10f; 
     public Transform adZone;
@@ -19,10 +20,11 @@ public class BrowserController : MonoBehaviour
 
     void Start()
     {
-        //minBounds = new Vector2(-6.34f, -1.46f);
+        
         minBounds = new Vector2(-3.34f, -0.46f);
-        //maxBounds = new Vector2(7.7f, 4.34f);
         maxBounds = new Vector2(2.7f, 2.34f);
+
+         
     }
     void Update()
     {
