@@ -15,7 +15,7 @@ public class AntivirusApp : MonoBehaviour
     void Start()
     {
         InitialPercentCalc(totalHPStart);
-        threatLevelTxt.text = "%62";
+        //threatLevelTxt.text = "%62";
     }
 
     void Update()
@@ -60,9 +60,10 @@ public class AntivirusApp : MonoBehaviour
     }
 
     void TextColorChange(){
-        if (threatLvlPercent > 0 && threatLvlPercent <6){
-            threatLevelTxt.color = Color.green;
-        }else if(threatLvlPercent > 5 && threatLvlPercent < 76){
+        // if (threatLvlPercent > 0 && threatLvlPercent <6){
+        //     threatLevelTxt.color = Color.green;
+        // }else 
+        if(threatLvlPercent > 5 && threatLvlPercent < 76){
             threatLevelTxt.color = Color.black;
         }else if (threatLvlPercent >= 76){
             threatLevelTxt.color = Color.red;
