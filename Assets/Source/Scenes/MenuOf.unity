@@ -927,7 +927,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 437, y: -225}
+=======
+  m_AnchoredPosition: {x: 405, y: -139.99992}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 150, y: 79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387167709
@@ -1135,7 +1139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 451, y: 64}
+  m_AnchoredPosition: {x: 410, y: 153}
   m_SizeDelta: {x: 150, y: 79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464451782
@@ -1797,7 +1801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 472, y: -76.29996}
+  m_AnchoredPosition: {x: 430.9999, y: 12.700107}
   m_SizeDelta: {x: 150, y: 79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009224935
@@ -2022,7 +2026,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< Updated upstream
   m_Color: {r: 1, g: 0.9608367, b: 0.8254717, a: 1}
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Stashed changes
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
