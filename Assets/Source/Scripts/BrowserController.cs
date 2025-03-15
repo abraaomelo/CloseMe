@@ -12,6 +12,7 @@ public class BrowserController : MonoBehaviour
     public GameObject adM2Prefab;
     public GameObject adP1Prefab;
     public GameObject adP2Prefab;
+    public GameObject desktopIcon1, desktopIcon2, desktopIcon3;
     private bool reachedZero=false;
     public float value = 10f; 
     public Transform adZone;
