@@ -21,7 +21,7 @@ public class ButtonSendEmailController : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Q)){
+        if (antivirus.ReachedZero()){
             mybutton.interactable=true;
             
         }
