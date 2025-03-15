@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class ButtonSendEmailController : MonoBehaviour
 {
@@ -9,6 +10,22 @@ public class ButtonSendEmailController : MonoBehaviour
     public GameObject browser;
     public AntivirusApp antivirus;
     public bool emailSentBool=false;
+
+    public Button mybutton;
+
+    void Start()
+    {
+        mybutton.interactable=false;
+    }
+
+    void Update()
+    {
+        
+        if (Input.GetKeyDown(KeyCode.Q)){
+            mybutton.interactable=true;
+            
+        }
+    }
     public void SendEmail(){
         
         if (antivirus.ReachedZero()){
