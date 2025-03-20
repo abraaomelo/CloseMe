@@ -7,8 +7,8 @@ using System;
 public class AntivirusApp : MonoBehaviour
 {
     public TextMeshProUGUI threatLevelTxt;
-    public float threatLvlPercent = 62;
-    public float totalHPStart=62;
+    public float threatLvlPercent;
+    public float totalHPStart;
     public BrowserController browser;
     public EnvController envController;
 

@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class BrowserController : MonoBehaviour
 {
     public AntivirusApp antivirus;
-   // Ad Prefabs
+    // Ad Prefabs
     public GameObject adM1Prefab;
     public GameObject adG1Prefab;
     public GameObject adM2Prefab;
@@ -14,11 +14,14 @@ public class BrowserController : MonoBehaviour
     public GameObject adP2Prefab;
     public GameObject desktopIcon1, desktopIcon2, desktopIcon3;
     public GameObject tr0janObj;
-    private bool reachedZero=false;
-    public float value = 10f; 
+    private bool reachedZero = false;
+    private int lastAd = -1, randomAd;
+    public float value = 10f;
     public Transform adZone;
     Vector2 minBounds, maxBounds;
     AudioManager audioManager;
+
+
 
     void Awake()
     {
@@ -27,25 +30,30 @@ public class BrowserController : MonoBehaviour
 
     void Start()
     {
-        
+
         minBounds = new Vector2(-3.34f, -0.46f);
         maxBounds = new Vector2(2.7f, 2.34f);
         audioManager.PlayMusic(audioManager.shootingGame);
         CreateTr0jan();
-         
+        StartCoroutine(SpawnAdsWithDelay());
+        StartCoroutine(SpawnTr0janWithDelay());
+
     }
     void Update()
     {
         CheckIfReachedZero();
 
-        if(Input.GetKeyDown(KeyCode.N)){
+        if (Input.GetKeyDown(KeyCode.N))
+        {
             CreateRandomAd();
         }
     }
 
-    private void CheckIfReachedZero(){
-        if (antivirus.GetCurrentPercent()<1){
-            reachedZero=true;
+    private void CheckIfReachedZero()
+    {
+        if (antivirus.GetCurrentPercent() < 1)
+        {
+            reachedZero = true;
         }
     }
 
@@ -54,8 +62,8 @@ public class BrowserController : MonoBehaviour
     {
         yield return new WaitForSeconds(3f); // Wait for 5 seconds
 
-            CreateRandomAd();
-            reachedZero=false;
+        CreateRandomAd();
+        reachedZero = false;
     }
 
     IEnumerator CreateNewTr0janDelay()
@@ -64,18 +72,28 @@ public class BrowserController : MonoBehaviour
         CreateTr0jan();
     }
 
-    public void ReachedZero(){
+    public void ReachedZero()
+    {
         StartCoroutine(CheckAfterDelay());
     }
 
-    void CreateRandomAd(){
+    public void CreateRandomAd()
+    {
         Vector2 randomPosition = new Vector2(
             Random.Range(minBounds.x, maxBounds.x),
             Random.Range(minBounds.y, maxBounds.y)
         );
-            
-            int randomAd = Random.Range(1, 6);  // Random number between 1 and 5
-        
+
+        do
+        {
+            randomAd = Random.Range(1, 6);  // Random number between 1 and 5
+
+        } while (randomAd == lastAd);
+
+        lastAd = randomAd;
+
+
+
         GameObject newAdG = null;
 
         switch (randomAd)
@@ -89,8 +107,8 @@ public class BrowserController : MonoBehaviour
                 newAdG.GetComponent<AdMController>().SetAntivirus(antivirus);
                 break;
             case 3:
-                newAdG = Instantiate(adG1Prefab, randomPosition, Quaternion.identity);
-                newAdG.GetComponent<AddGController>().SetAntivirus(antivirus);
+                newAdG = Instantiate(adP1Prefab, randomPosition, Quaternion.identity);
+                newAdG.GetComponent<AdPController>().SetAntivirus(antivirus);
                 break;
             case 4:
                 newAdG = Instantiate(adP1Prefab, randomPosition, Quaternion.identity);
@@ -106,8 +124,36 @@ public class BrowserController : MonoBehaviour
         }
     }
 
-    void CreateTr0jan(){
-        tr0janObj.SetActive(!tr0janObj.activeSelf);
+    void CreateTr0jan()
+    {
+       // tr0janObj.SetActive(!tr0janObj.activeSelf);
+        Instantiate(tr0janObj, Vector3.zero, Quaternion.identity);
+
     }
+
+    public void SetAntivirus(AntivirusApp app)
+    {
+        antivirus = app;
+    }
+
+    IEnumerator SpawnAdsWithDelay()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            CreateRandomAd();
+            yield return new WaitForSeconds(0.6f); // 0.5-second delay
+        }
+    }
+
+    IEnumerator SpawnTr0janWithDelay()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            CreateTr0jan();
+            yield return new WaitForSeconds(3f); 
+        }
+    }
+
+
 
 }
