@@ -23,7 +23,7 @@ public Button resumebdsm, restartb, menub;
 
 void Start()
 {
-    Time.timeScale=0f;
+    //Time.timeScale=0f;
 }
 public void Home ()
 {

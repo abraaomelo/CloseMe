@@ -2520,8 +2520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   antivirus: {fileID: 929458977}
   adM1Prefab: {fileID: 6438417577875829669, guid: e5298509b4d434c0b905d7fb05775dc6, type: 3}
-  adG1Prefab: {fileID: 9180084488822375863, guid: 9f1a3d1743ecb4a2f80435534db8e00d, type: 3}
   adM2Prefab: {fileID: 6216571035916610112, guid: d9ae112e131b943e79a300c68e30a58f, type: 3}
+  adM3Prefab: {fileID: 6216571035916610112, guid: e3cd000dce98c4268b84e1d8b5cfa7ca, type: 3}
   adP1Prefab: {fileID: 4158795834106267652, guid: 530c460a1674b4f439069bbdb56b8e71, type: 3}
   adP2Prefab: {fileID: 7096150193499495030, guid: a600f9acf1ace409fbc39ba432422a6d, type: 3}
   desktopIcon1: {fileID: 1037999453}
