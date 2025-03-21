@@ -138,16 +138,22 @@ public class BrowserController : MonoBehaviour
 
     IEnumerator SpawnAdsWithDelay()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             CreateRandomAd();
-            yield return new WaitForSeconds(0.6f); // 0.5-second delay
+            yield return new WaitForSeconds(2f);
         }
+        for (int i = 0; i < 5; i++)
+        {
+            CreateRandomAd();
+            yield return new WaitForSeconds(0.4f);
+        }
+
     }
 
     IEnumerator SpawnTr0janWithDelay()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 10; i++)
         {
             CreateTr0jan();
             yield return new WaitForSeconds(3f); 
