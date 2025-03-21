@@ -18,6 +18,8 @@ public class EnvController : MonoBehaviour
      public TextMeshProUGUI countdownText;
      public GameObject gameOverScreen;
 
+      public GameObject pauseObj;
+
      private bool active = true;
      private bool gameOver = false;
 
@@ -46,6 +48,10 @@ public class EnvController : MonoBehaviour
     void Update(){
         if(!emailController.emailSentBool && antivirus.isActiveAndEnabled)
             TimerCount();
+        
+            if(Input.GetKeyDown(KeyCode.Escape)) {
+                OpenPause();
+            }
     }
 
     void TimerCount(){
@@ -59,6 +65,13 @@ public class EnvController : MonoBehaviour
             StopTimer();
         }
     }
+
+    void OpenPause(){
+
+        pauseObj.SetActive(!pauseObj.activeSelf);
+        
+    }
+    
 
     void UpdateTimerUI(){
         if (currentTime > 0 && currentTime <6){
