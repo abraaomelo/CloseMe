@@ -8,8 +8,8 @@ public class BrowserController : MonoBehaviour
     public AntivirusApp antivirus;
     // Ad Prefabs
     public GameObject adM1Prefab;
-    public GameObject adG1Prefab;
     public GameObject adM2Prefab;
+    public GameObject adM3Prefab;
     public GameObject adP1Prefab;
     public GameObject adP2Prefab;
     public GameObject desktopIcon1, desktopIcon2, desktopIcon3;
@@ -103,12 +103,12 @@ public class BrowserController : MonoBehaviour
                 newAdG.GetComponent<AdMController>().SetAntivirus(antivirus);
                 break;
             case 2:
-                newAdG = Instantiate(adM1Prefab, randomPosition, Quaternion.identity);
+                newAdG = Instantiate(adM2Prefab, randomPosition, Quaternion.identity);
                 newAdG.GetComponent<AdMController>().SetAntivirus(antivirus);
                 break;
             case 3:
-                newAdG = Instantiate(adP1Prefab, randomPosition, Quaternion.identity);
-                newAdG.GetComponent<AdPController>().SetAntivirus(antivirus);
+                newAdG = Instantiate(adM3Prefab, randomPosition, Quaternion.identity);
+                newAdG.GetComponent<AdMController>().SetAntivirus(antivirus);
                 break;
             case 4:
                 newAdG = Instantiate(adP1Prefab, randomPosition, Quaternion.identity);
@@ -153,10 +153,10 @@ public class BrowserController : MonoBehaviour
 
     IEnumerator SpawnTr0janWithDelay()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 30; i++)
         {
             CreateTr0jan();
-            yield return new WaitForSeconds(3f); 
+            yield return new WaitForSeconds(2f); 
         }
     }
 
