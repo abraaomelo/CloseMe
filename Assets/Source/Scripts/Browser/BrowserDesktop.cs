@@ -8,6 +8,8 @@ public class BrowserDesktop : MonoBehaviour
     public Sprite sprhoverBrower, sprunselectedBrowser;
     public LimOS os;
 
+    public GameObject errorBrowser;
+
     void OnMouseEnter()
     {
         Debug.Log("Entrou");

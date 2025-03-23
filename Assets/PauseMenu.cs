@@ -27,7 +27,7 @@ void Start()
 }
 public void Home ()
 {
-
+Time.timeScale=1f;
 SceneManager.LoadScene(0);
 }
 
@@ -43,6 +43,8 @@ resumebdsm.interactable=true;
 public void Restart ()
 
 {
+    
+Time.timeScale=1f;
 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }
 }

@@ -33,6 +33,6 @@ public class Menuaction : MonoBehaviour
     }
 
     public void ExitGame() {
-        Debug.Log("Sair do Jogo");
+        Application.OpenURL("https://nukkensa.itch.io/close-me-if-you-can");
     }
 }

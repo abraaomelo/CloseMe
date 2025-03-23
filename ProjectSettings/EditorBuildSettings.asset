@@ -10,5 +10,5 @@ EditorBuildSettings:
     guid: 3e319252cee2046a4bb7defefcdd4abf
   - enabled: 1
     path: Assets/Source/Scenes/PROD/CompScene.unity
-    guid: 833c6adf8c2ee411a810a58d7201b24c
+    guid: 56f653c46d86e4cb98f76bfd19e061e6
   m_configObjects: {}
