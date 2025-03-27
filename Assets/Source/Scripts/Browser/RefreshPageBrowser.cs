@@ -8,11 +8,24 @@ public class RefreshPageBrowser : MonoBehaviour
     public GameObject browser;
     public GameObject antivirus;
     public GameObject erroBrowser;
+    public GameObject loadingObj;
 
     public void RefreshBrowserAction(){
-       
-        browser.SetActive(!browser.activeSelf);
-        antivirus.SetActive(!antivirus.activeSelf);
-         erroBrowser.SetActive(false);
+
+        
+        StartCoroutine(RefreshWithDelay());
     }
+
+    private IEnumerator RefreshWithDelay()
+{
+    loadingObj.SetActive(true); // Activate loading animation
+    yield return new WaitForSeconds(1.5f); // Wait for 1.5 seconds
+    
+    loadingObj.SetActive(false); // Hide loading animation
+    browser.SetActive(!browser.activeSelf);
+    antivirus.SetActive(!antivirus.activeSelf);
+    erroBrowser.SetActive(false);
+}
+
+    
 }
