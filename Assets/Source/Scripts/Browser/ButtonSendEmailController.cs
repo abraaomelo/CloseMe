@@ -42,6 +42,7 @@ public class ButtonSendEmailController : MonoBehaviour
         if (antivirus.ReachedZero())
         {
             CallSendEmail();
+            Time.timeScale=0f;
         }
     }
 

@@ -23,11 +23,11 @@ public Button resumebdsm, restartb, menub;
 
 void Start()
 {
-    Time.timeScale=0f;
+    //Time.timeScale=0f;
 }
 public void Home ()
 {
-
+Time.timeScale=1f;
 SceneManager.LoadScene(0);
 }
 
@@ -43,6 +43,8 @@ resumebdsm.interactable=true;
 public void Restart ()
 
 {
+    
+Time.timeScale=1f;
 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }
 }

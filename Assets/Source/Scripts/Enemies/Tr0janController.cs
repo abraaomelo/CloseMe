@@ -6,46 +6,45 @@ using UnityEngine;
 
 public class Tr0janController : MonoBehaviour
 {
-       [SerializeField] private float moveSpeed = 2f;
-       private List<Transform> pathPoints = new List<Transform>();
-       private int currentTargetIndex = 0;
-       private int direction = 1;
-       private bool gotKey=false;
-       
+    [SerializeField] private float moveSpeed = 2f;
+    private List<Transform> pathPoints = new List<Transform>();
+    private int currentTargetIndex = 0;
+    private int direction = 1;
+    private bool gotKey = false;
+
 
     void Start()
     {
-        
-        int randompath = Random.Range(1,3);
-        Debug.Log("RANDOM PATH: "+randompath);
+
+        int randompath = Random.Range(1, 3);
         GameObject[] pathObjects = GameObject.FindGameObjectsWithTag("path1");
 
-        if(randompath==2){
-         pathObjects = GameObject.FindGameObjectsWithTag("path2");
+        if (randompath == 2)
+        {
+            pathObjects = GameObject.FindGameObjectsWithTag("path2");
         }
 
-        foreach(GameObject obj in pathObjects){
+        foreach (GameObject obj in pathObjects)
+        {
             pathPoints.Add(obj.transform);
         }
 
-        pathPoints.Sort((a,b) => a.name.CompareTo(b.name));
+        pathPoints.Sort((a, b) => a.name.CompareTo(b.name));
 
-        if (pathPoints.Count > 0){
+        if (pathPoints.Count > 0)
+        {
             transform.position = pathPoints[0].position;
         }
     }
 
-     void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
         {
-
-            Debug.Log("O primeiro colision funciona");
-            if (collision.gameObject.tag == "bullet")
-            {
-                Debug.Log("Fui acertado");
-                Destroy(gameObject);
-                //Destroy(collision.gameObject);               
-            }
+            Destroy(gameObject);
+            //Destroy(collision.gameObject);               
         }
+    }
 
     void Update()
     {
@@ -71,7 +70,8 @@ public class Tr0janController : MonoBehaviour
                 direction = 1; // Move forward
             }
 
-            if (gotKey && currentTargetIndex==0){
+            if (gotKey && currentTargetIndex == 0)
+            {
                 Destroy(gameObject);
                 ReachedStartPoint();
 
@@ -80,15 +80,28 @@ public class Tr0janController : MonoBehaviour
             // Update the target index
             currentTargetIndex += direction;
 
+        }
     }
-}
-      void ReachedStartPoint(){
-          BrowserController brow = FindAnyObjectByType<BrowserController>();
+    void ReachedStartPoint()
+    {
+        // BrowserController brow = FindAnyObjectByType<BrowserController>();
+        // brow.CreateRandomAd();
+        // brow.CreateRandomAd();
+        // brow.CreateRandomAd();
+        StartCoroutine(SpawnAdsWithDelay());
+    }
+
+    IEnumerator SpawnAdsWithDelay()
+    {
+        BrowserController brow = FindAnyObjectByType<BrowserController>();
+        for (int i = 0; i < 4; i++)
+        {
             brow.CreateRandomAd();
-            brow.CreateRandomAd();
-            brow.CreateRandomAd();
+            yield return new WaitForSeconds(0.8f);
         }
 
-       
+    }
+
+
 }
 

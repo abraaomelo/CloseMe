@@ -69,6 +69,7 @@ public class EnvController : MonoBehaviour
     void OpenPause(){
 
         pauseObj.SetActive(!pauseObj.activeSelf);
+        Time.timeScale=0f;
         
     }
     
