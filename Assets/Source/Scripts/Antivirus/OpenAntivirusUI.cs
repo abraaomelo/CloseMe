@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class OpenAntivirusUI : MonoBehaviour
 {
-    public GameObject antivirus;
+    public AntivirusApp antivirus;
     public LimOS os;
 
-    
-    public void OpenAntivirus(){
-        //antivirus.SetActive(!antivirus.activeSelf);
-        //os.WindowOpened();
+    public bool openableIconAntivirus;
+
+    public void OpenAntivirus()
+    {
+        Debug.Log("Clicou na barra ");
+            antivirus.gameObject.SetActive(!antivirus.gameObject.activeSelf);
+            os.WindowOpened();
+        
     }
 }

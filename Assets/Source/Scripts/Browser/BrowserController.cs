@@ -38,6 +38,7 @@ public class BrowserController : MonoBehaviour
 
         minBounds = new Vector2(-3.34f, -0.46f);
         maxBounds = new Vector2(2.7f, 2.34f);
+
         audioManager.PlayMusic(audioManager.shootingGame);
         CreateTr0jan();
         StartCoroutine(SpawnAdsWithDelay());
@@ -166,7 +167,7 @@ public class BrowserController : MonoBehaviour
         }
     }
 
-    //--------------------NEUE--------------------------
+    //--------------------NEU--------------------------
 
     private void FillAndShuffleAdPool()
     {
